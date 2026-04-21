@@ -736,7 +736,10 @@ const NumberGame = () => {
 
           {gameState === 'menu' && (
             <div className="text-center">
-              <h2 style={{ fontSize: '28px', fontWeight: '800', color: 'white', marginBottom: '8px' }}>Ready to Play?</h2>
+              <h2 style={{ fontSize: '28px', fontWeight: '800', color: 'white', marginBottom: '4px' }}>Ready to Play?</h2>
+              <p style={{ color: '#F59E0B', fontSize: '13px', marginBottom: '8px' }}>
+                {new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+              </p>
               <p style={{ color: '#94A3B8', fontSize: '14px', marginBottom: '28px' }}>
                 {difficulty === 'easy' ? 'Easy Mode — colors show you position hints' :
                  difficulty === 'normal' ? 'Normal Mode — colors show digits in the number' :
