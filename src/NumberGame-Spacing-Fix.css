@@ -1,0 +1,205 @@
+/* NumberGame V2 - Clean Spacing Fix */
+
+/* ============================================
+   HEADER BUTTONS - Proper spacing
+   ============================================ */
+
+/* Only header buttons get spacing - NOT number pad */
+.text-center .flex button {
+  margin-right: 12px !important;
+}
+
+.text-center .flex button:last-child {
+  margin-right: 0 !important;
+}
+
+/* ============================================
+   NUMBER PAD - Clean squares
+   ============================================ */
+
+/* Number pad buttons - perfect squares */
+.grid.grid-cols-3 button,
+.grid-cols-3 button {
+  width: 80px !important;
+  height: 80px !important;
+  min-width: 80px !important;
+  min-height: 80px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Number pad spacing */
+.grid.grid-cols-3,
+.grid-cols-3 {
+  gap: 12px !important;
+}
+
+/* ============================================
+   MOBILE OPTIMIZATION
+   ============================================ */
+
+@media (max-width: 640px) {
+  .grid.grid-cols-3 button {
+    width: 70px !important;
+    height: 70px !important;
+    min-width: 70px !important;
+    min-height: 70px !important;
+  }
+}
+
+/* ============================================
+   LANDING PAGE CENTERING
+   ============================================ */
+
+.min-h-screen.flex h1,
+.min-h-screen.flex h2,
+.min-h-screen.flex h3,
+.min-h-screen.flex p,
+.min-h-screen.flex div {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
+
+.min-h-screen.flex button {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Landing page - override any conflicts and force centering */
+.min-h-screen.flex {
+  text-align: center !important;
+}
+
+.min-h-screen.flex h1,
+.min-h-screen.flex h2,
+.min-h-screen.flex h3,
+.min-h-screen.flex p,
+.min-h-screen.flex div {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
+
+.min-h-screen.flex button {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Feature grid */
+.min-h-screen.flex .grid {
+  justify-items: center !important;
+}
+
+/* NumberGame V2 - Spacing & Layout Fixes */
+
+/* ============================================
+   BUTTON SPACING FIXES
+   ============================================ */
+
+/* All buttons - consistent comfortable sizing */
+button {
+  min-height: 48px !important;
+  min-width: 48px !important;
+  padding: 12px 20px !important;
+  margin: 0 !important; /* Remove all individual button margins */
+}
+
+/*
+.flex button,
+[class*="flex"] button {
+  margin: 0 !important; 
+}
+*/
+
+
+/* Header button group */
+.text-center .flex {
+  gap: 12px !important;
+  margin-top: 24px !important;
+  margin-bottom: 24px !important;
+}
+
+/* If timer is INSIDE the button, add internal spacing */
+button > div,
+button > p,
+button > span {
+  margin-top: 8px !important;
+  padding-top: 4px !important;
+}
+
+/* ============================================
+   VERTICAL SPACING - TEXT & BUTTONS
+   ============================================ */
+
+/* Space between text and buttons below */
+p + .flex,
+p + button,
+h2 + .flex,
+h2 + button,
+h3 + .flex,
+h3 + button {
+  margin-top: 24px !important;
+}
+
+/* Space between buttons and text below */
+.flex + p,
+button + p,
+.flex + h2,
+button + h2,
+.grid + button,
+.grid + .flex {
+  margin-top: 24px !important;
+}
+
+/* Space between submit button and timer */
+button + div,
+button + p,
+button + span {
+  margin-top: 16px !important;
+}
+
+/* If timer is INSIDE the button, add internal spacing */
+button > div,
+button > p,
+button > span {
+  margin-top: 8px !important;
+  padding-top: 4px !important;
+}
+
+/* STEP 1 Diagnostic: force spacing between flex children */
+.flex {
+  gap: 12px !important;
+}
+
+/* STEP 3: Allow flex children to wrap on small screens */
+@media (max-width: 640px) {
+  .flex {
+    flex-wrap: wrap !important;
+  }
+  .flex button {
+    margin: 4px !important; /* give breathing room */
+  }
+}
+
+/* STEP 4: Allow guess history rows to space correctly */
+.guess-history-row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  text-align: left !important;
+}
+
+/* Extra spacing between guess and feedback */
+.guess-history-row span:first-child {
+  margin-right: 24px; /* adjust number for more/less space */
+}
+
+/* Last game guesses — force single horizontal row */
+.last-game-guesses {
+  display: flex !important;
+  flex-wrap: nowrap !important; /* force one line */
+  gap: 12px; /* spacing between guess boxes */
+  overflow-x: auto; /* allows scrolling if too wide for screen */
+}
+
+
