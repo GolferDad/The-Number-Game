@@ -273,6 +273,7 @@ const NumberGame = () => {
       setGameState('arrangement');
       setBestClueType('three-right');
       setMessage(`${guess.join(' ')} are the correct digits!\n🔐 Crack the code - Guess the exact number!`);
+      setArrangementsRemaining(Math.max(1, guessesRemaining - 1));
       const findingPoints = [50, 40, 30, 20, 10, 5][Math.min(guesses.length, 5)];
       setRoundScore(findingPoints);
     } else {
@@ -303,7 +304,8 @@ const NumberGame = () => {
     if (guess[0] === secretNumber[0] &&
         guess[1] === secretNumber[1] &&
         guess[2] === secretNumber[2]) {
-      const arrangementBonus = arrangementsRemaining === 2 ? 10 : 5;
+      const isFirstArrangement = !guesses.some(g => g.feedback === 'Wrong order');
+      const arrangementBonus = isFirstArrangement ? 10 : 5;
       const totalPoints = roundScore + arrangementBonus;
       const finalGuesses = [...guesses, { guess, feedback: 'CORRECT!', isWin: true }];
       setGuesses(finalGuesses);
@@ -521,7 +523,7 @@ const NumberGame = () => {
     <h2 className="text-xl font-bold mb-4">How to Play</h2>
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', fontSize: '13px' }}>
 
-      <p className="text-indigo-200">Guess a secret 3-digit number — digits 1–9, all unique. You have <strong className="text-white">6 guesses</strong> to find all 3 correct digits, then <strong className="text-white">2 attempts</strong> to crack the exact arrangement.</p>
+      <p className="text-indigo-200">Guess a secret 3-digit number — digits 1–9, all unique. You have <strong className="text-white">6 total guesses</strong> — find the 3 correct digits, then use your remaining guesses to crack the exact arrangement.</p>
 
       <div style={{ background: 'rgba(252,211,77,0.1)', border: '1px solid rgba(252,211,77,0.4)', borderRadius: '8px', padding: '10px 14px', textAlign: 'center' }}>
         <p style={{ color: '#FCD34D', fontWeight: '700', margin: 0 }}>🎰 Lottery Win — Guess the exact number on your very first try: 1 in 504 odds!</p>
